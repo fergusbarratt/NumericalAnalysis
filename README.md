@@ -1,2 +1,2 @@
-# sse
-Stochastic simulation test from Breuer and Petruccione
+# Numerical Analysis
+Various solvers, factorizers and numerical methods
