@@ -1,4 +1,5 @@
-'''Computes LU Decomposition of Matrix using Numpy.  - Might be Crout or Doolittle dunno'''
+'''Computes LU Decomposition of Matrix using Numpy. does the wrong
+factoring'''
 from __future__ import division
 import numpy as np
 
@@ -117,9 +118,9 @@ def test_PLU_decomposition(noisy=False):
         if (P1.T.dot(L1).dot(U1)-old_A).any():
             print "failed\n", P1.T.dot(L1).dot(U1), '\ndoesnt equal\n', old_A
         else:
-            print "succeeded: P^T L U = \n", P1.T.dot(L1).dot(U1), '\nis equal to A\n', old_A
+            print "succeeded: P^T L U = \n", P1.T.dot(L1).dot(U1),'\nis equal to A\n', old_A
     print
-    assert np.allclose(P2.T.dot(L2).dot(U2), old_B)
+    assert np.allclose(P1.T.dot(L1).dot(U1), old_A)
     assert np.allclose(P2.T.dot(L2).dot(U2), old_B)
     assert np.allclose(P3.T.dot(L3).dot(U3), old_C)
     print 'PLU decomposition OK'
@@ -131,5 +132,5 @@ def run_tests(noisy=False):
     test_row_switch(noisy)
     print 'All tests OK\n'
 
-run_tests(True)
+run_tests(False)
 
